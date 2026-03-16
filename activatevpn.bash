@@ -49,8 +49,16 @@ check_variables
 echo "Connecting to $VPN_HOST..."
 
 # Fetch credentials from KeePassXC
-pwd_info=$(keepassxc-cli show -s "$DB_PATH" "$ENTRY_NAME" -a Username -a Password -t)
+# This part is adjusted for TU Wien VPN, since double new line is requested after username.
+# Therefore, keepassxc output is parsed into 3 lines in keepass array.
 
-
+keepass=()
+while IFS= read -r line; do
+    keepass+=( "$line" )
+done < <( keepassxc-cli show -s "$DB_PATH" "$ENTRY_NAME" -a Username -a Password -t )
+# each line from keepass array is separate value
+USERNAME=${keepass[0]}
+PASSWORD=${keepass[1]}
+TOTP=${keepass[2]}
 # Execute the VPN connection
-echo -e "connect $VPN_HOST\n$pwd_info\ny" | "$VPN_CLIENT" -s
+echo -e "connect $VPN_HOST\n$USERNAME\n\n$PASSWORD\n$TOTP" | "$VPN_CLIENT" -s
