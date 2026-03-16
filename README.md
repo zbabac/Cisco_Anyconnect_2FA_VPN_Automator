@@ -17,7 +17,7 @@ Cisco has an interactive cli tool called vpn, after installing cisco anyconnect,
 2. Clone this repository
 
 ```
-git clone https://github.com/yusufozgur/Cisco_Anyconnect_2FA_VPN_Automator
+git clone [https://github.com/yusufozgur/Cisco_Anyconnect_2FA_VPN_Automator](https://github.com/zbabac/Cisco_Anyconnect_2FA_VPN_Automator.git)
 cd Cisco_Anyconnect_2FA_VPN_Automator
 ```
 
@@ -25,11 +25,11 @@ cd Cisco_Anyconnect_2FA_VPN_Automator
 
 ```
 # This is the database file for KeePassXC.
-DB_PATH="/home/yusuf/Sync/passwords.kdbx"
+DB_PATH="/home/z/.keepass/Passwords.kdbx"
 # Entry Name for the entry in the database file.
-ENTRY_NAME="Uni-Heidelberg"
+ENTRY_NAME="TUvpn"
 # This should be the connection url your organization provides.
-VPN_HOST="vpn-ac.urz.uni-heidelberg.de"
+VPN_HOST="vpn.tuwien.ac.at"
 # This is the path that the vpn cli by cisco resides in my system, may change in your system.
 VPN_CLIENT="/opt/cisco/secureclient/bin/vpn"
 ```
@@ -47,3 +47,57 @@ Then the usage becomes
 activatevpn
 deactivatevpn
 ```
+
+5. (Optional) Create Desktop file to be able to click from desktop or/and App Launcher to connect VPN
+Modify desktop file with your paths in sections Exec and Path.
+Cisco-VPN-Activate.desktop
+```
+[Desktop Entry]
+Categories=Network
+Comment[en_US]=
+Comment=
+Exec="/home/z/programi/2fa_vpn/activatevpn.bash"
+GenericName[en_US]=
+GenericName=
+Icon=cisco-secure-client
+MimeType=
+Name[en_US]=Cisco VPN Activate
+Name=Cisco VPN Activate
+Path=/home/z/programi/2fa_vpn/
+StartupNotify=false
+Terminal=true
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+```
+Copy to your desktop and launcher path:
+cp Cisco-VPN-Activate.desktop ~/Desktop/
+cp Cisco-VPN-Activate.desktop ~/.local/share/applications
+
+6. (Optional) Create Desktop file to disconnect from VPN
+Modify desktop file with your paths in sections Exec and Path.
+Cisco-VPN-Disconnect.desktop
+```
+[Desktop Entry]
+Categories=Network;Utilities
+Comment[en_US]=
+Comment=
+Exec=/home/z/programi/2fa_vpn/deactivatevpn.bash
+GenericName[en_US]=
+GenericName=
+Icon=D23E_msiexec.0
+MimeType=
+Name[en_US]=Cisco-VPN-Disconnect
+Name=Cisco-VPN-Disconnect
+Path=~/programi/2fa_vpn/
+StartupNotify=false
+Terminal=true
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+```
+Copy to your desktop and launcher path:
+cp Cisco-VPN-Disconnect.desktop ~/Desktop/
+cp Cisco-VPN-Disconnect.desktop ~/.local/share/applications
