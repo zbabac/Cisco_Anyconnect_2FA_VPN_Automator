@@ -1,9 +1,9 @@
 # Cisco Anyconnect VPN with 2 Factor Authentication Automator
 
-I forked this very useful project from https://github.com/yusufozgur/Cisco_Anyconnect_2FA_VPN_Automator and adapted it to my needs. At my university there is a similar solution, using Cisco AnyConnect.
-I made small changes to vpn_config.env to reflect TU Wien VPN settings.
-I also adjusted activatevpn.bash since in our implementation of 2FA, the server expects additional newline after username is provided. Therefore, the solution with a single variable `pwd_info` doesn't work.
-I adjusted the output of keepassxc to an array, and then separate USERNAME, PASSWORD and TOTP are passed to the vpn client.
+I forked this very useful project from https://github.com/yusufozgur/Cisco_Anyconnect_2FA_VPN_Automator and adapted it to my needs. At my university there is a similar solution, using Cisco AnyConnect.  
+I made small changes to vpn_config.env to reflect TU Wien VPN settings.  
+I also adjusted _activatevpn.bash_ since in our implementation of 2FA, the server expects additional newline after username is provided. Therefore, the solution with a single variable `pwd_info` doesn't work.  
+I adjusted the output of keepassxc to an array, and then separate _USERNAME_, _PASSWORD_ and _TOTP_ values are passed to the vpn client.  
 
 ## Motivation
 
