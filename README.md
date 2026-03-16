@@ -53,7 +53,7 @@ activatevpn
 deactivatevpn
 ```
 
-5. (Optional) Create Desktop file to be able to click from desktop or/and App Launcher to connect VPN
+6. (Optional) Create Desktop file to be able to click from desktop or/and App Launcher to connect VPN
 Modify desktop file with your paths in sections Exec and Path.
 Cisco-VPN-Activate.desktop
 ```
@@ -80,7 +80,7 @@ Copy to your desktop and launcher path:
 cp Cisco-VPN-Activate.desktop ~/Desktop/
 cp Cisco-VPN-Activate.desktop ~/.local/share/applications
 
-6. (Optional) Create Desktop file to disconnect from VPN
+7. (Optional) Create Desktop file to disconnect from VPN
 Modify desktop file with your paths in sections Exec and Path.
 Cisco-VPN-Disconnect.desktop
 ```
