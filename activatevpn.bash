@@ -49,8 +49,9 @@ check_variables
 echo "Connecting to $VPN_HOST..."
 
 # Fetch credentials from KeePassXC
-# This part is adjusted for TU Wien VPN, since double new line is requested after username.
+# This part is adjusted for my VPN, since double new line is requested after username.
 # Therefore, keepassxc output is parsed into 3 lines in keepass array.
+# 3 separate vars should be ok with any VPN implementation. Number of newlines is the only variable value than needs adjustment.
 
 keepass=()
 while IFS= read -r line; do
