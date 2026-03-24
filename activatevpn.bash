@@ -62,4 +62,5 @@ USERNAME=${keepass[0]}
 PASSWORD=${keepass[1]}
 TOTP=${keepass[2]}
 # Execute the VPN connection
-echo -e "connect $VPN_HOST\n$USERNAME\n\n$PASSWORD\n$TOTP" | "$VPN_CLIENT" -s
+# with default USERNAME (disregard name from keepass)
+echo -e "connect $VPN_HOST\n1\n\n$PASSWORD\n$TOTP" | "$VPN_CLIENT" -s
